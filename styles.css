@@ -1162,3 +1162,89 @@ pre:hover .copy-code-btn {
         font-size: 1.75rem;
     }
 }
+
+/* Author Profile Showcase Styles */
+.author-showcase {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 32px auto 0 auto;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    width: fit-content;
+    backdrop-filter: blur(8px);
+}
+
+.author-showcase-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.author-showcase-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.author-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.author-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(8, 11, 17, 0.4);
+    margin-top: auto;
+}
+
+.sidebar-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.sidebar-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-author-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sidebar-author-title {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+    .sidebar-footer {
+        display: none;
+    }
+}
