@@ -1161,6 +1161,106 @@ pre:hover .copy-code-btn {
     .slide-title {
         font-size: 1.75rem;
     }
+    
+    /* Responsive overrides for grids and widgets */
+    .grid-2col, .grid-3col {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .props-editor {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .props-preview {
+        padding: 12px;
+    }
+    
+    .product-card-mockup {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .presentation-footer {
+        padding: 16px;
+        height: auto;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+    
+    .progress-container {
+        width: 100%;
+        order: -1;
+    }
+    
+    .tab-headers {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    
+    .tab-header {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide {
+        padding: 16px;
+    }
+    
+    .slide-header {
+        margin-bottom: 16px;
+        gap: 10px;
+    }
+    
+    .slide-title {
+        font-size: 1.5rem;
+    }
+    
+    .slide-icon {
+        font-size: 2rem;
+    }
+    
+    .author-showcase {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 16px;
+    }
+    
+    .author-showcase-text {
+        text-align: center;
+    }
+    
+    /* Timeline responsive layout */
+    .timeline::after {
+        left: 20px;
+    }
+    
+    .timeline-container {
+        width: 100%;
+        padding-left: 45px;
+        padding-right: 15px;
+        text-align: left !important;
+    }
+    
+    .timeline-container::after {
+        left: 12px !important;
+    }
+    
+    .timeline-right {
+        left: 0%;
+    }
+    
+    /* Code block scaling */
+    pre {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
 }
 
 /* Author Profile Showcase Styles */
