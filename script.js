@@ -14,6 +14,12 @@ const toggleSidebarBtn = document.getElementById('toggle-sidebar');
 // Initialize Presentation
 function initPresentation() {
     buildSidebarMenu();
+    
+    // Collapse sidebar on small screens initially
+    if (window.innerWidth <= 1024) {
+        sidebar.classList.add('collapsed');
+    }
+    
     updateSlideViewState();
     
     // Keyboard Event Handlers
@@ -51,6 +57,9 @@ function buildSidebarMenu() {
         navItem.innerHTML = `<span class="nav-number">${slideNum}</span> <span class="nav-title">${title}</span>`;
         navItem.addEventListener('click', () => {
             goToSlide(slideNum);
+            if (window.innerWidth <= 1024) {
+                toggleSidebar();
+            }
         });
         sidebarNav.appendChild(navItem);
     });
@@ -125,6 +134,16 @@ function updateSlideViewState() {
 
 function toggleSidebar() {
     sidebar.classList.toggle('collapsed');
+    
+    // Toggle overlay on mobile
+    const overlay = document.getElementById('sidebar-overlay');
+    if (overlay) {
+        if (!sidebar.classList.contains('collapsed') && window.innerWidth <= 1024) {
+            overlay.classList.add('active');
+        } else {
+            overlay.classList.remove('active');
+        }
+    }
 }
 
 // Fullscreen API Handling

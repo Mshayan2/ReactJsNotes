@@ -20,11 +20,13 @@
                     </svg>
                 </div>
                 <h1 class="sidebar-title">React.js Course</h1>
+                <button class="close-sidebar-mobile-btn" id="close-sidebar-mobile" onclick="toggleSidebar()">&times;</button>
             </div>
             <nav class="sidebar-nav" id="sidebar-nav">
                 <!-- Navigation Items generated dynamically in JS -->
             </nav>
         </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
         <!-- Main Slide Viewport -->
         <main class="presentation-container">
