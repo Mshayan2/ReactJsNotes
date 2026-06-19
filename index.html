@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React.js Masterclass - Interactive Course Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="react-logo-container">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="8" />
+                        <ellipse cx="50" cy="50" rx="38" ry="12" transform="rotate(0 50 50)" stroke-width="2.5" fill="none" stroke="currentColor" />
+                        <ellipse cx="50" cy="50" rx="38" ry="12" transform="rotate(60 50 50)" stroke-width="2.5" fill="none" stroke="currentColor" />
+                        <ellipse cx="50" cy="50" rx="38" ry="12" transform="rotate(120 50 50)" stroke-width="2.5" fill="none" stroke="currentColor" />
+                    </svg>
+                </div>
+                <h1 class="sidebar-title">React.js Course</h1>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Navigation Items generated dynamically in JS -->
+            </nav>
+        </aside>
+
+        <!-- Main Slide Viewport -->
+        <main class="presentation-container">
+            <header class="presentation-header">
+                <div class="header-left">
+                    <button class="toggle-sidebar-btn" id="toggle-sidebar" title="Toggle Slide Index (Tab)">
+                        📁 Index
+                    </button>
+                    <div class="course-badge">Frontend Development</div>
+                </div>
+                <div class="header-right">
+                    <div class="shortcut-tips">
+                        Use <span class="shortcut-key">◀</span> / <span class="shortcut-key">▶</span> Arrow Keys
+                    </div>
+                </div>
+            </header>
+
+            <div class="slides-viewport" id="slides-viewport">
+                <!-- SLIDE 1: TITLE SLIDE -->
+                <section class="slide active" id="slide-1">
+                    <div class="title-slide-content">
+                        <div class="title-badge">The Complete Guide</div>
+                        <h1 class="main-title">React.js Masterclass</h1>
+                        <p class="main-subtitle">Build highly responsive, component-driven web applications with Meta's open-source library.</p>
+                        <div class="start-hint pulse-element">
+                            <span>Press the Right Arrow key (▶) or Click Next below to begin</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 2: INTRO TO REACT -->
+                <section class="slide" id="slide-2">
+                    <div class="slide-header">
+                        <span class="slide-icon">🌟</span>
+                        <h2 class="slide-title">Introduction to React.js</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 20px; font-size: 1.25rem;">React is an open-source JavaScript library developed by <span class="highlight-text">Meta (Facebook)</span> to construct dynamic, component-driven user interfaces.</p>
+                                <ul>
+                                    <li><span class="highlight-text">Created:</span> 2011 by Jordan Walke. Open-sourced in 2013.</li>
+                                    <li><span class="highlight-text">Purpose:</span> Solves the complexity of updating stateful DOM trees in large-scale applications.</li>
+                                    <li><span class="highlight-text">Application style:</span> Powers <span class="accent-text">Single-Page Applications (SPAs)</span>.</li>
+                                </ul>
+                            </div>
+                            <div class="grid-2col" style="grid-template-columns: 1fr; gap: 16px;">
+                                <div class="card-panel">
+                                    <h3>🧩 Component-Based</h3>
+                                    <p>Divide complex layouts into isolated, reusable blocks of code that handle their own states.</p>
+                                </div>
+                                <div class="card-panel">
+                                    <h3>⚡ Declarative Paradigm</h3>
+                                    <p>Describe how your UI should look for a given state. React handles the heavy lifting of updating the real DOM.</p>
+                                </div>
+                                <div class="card-panel">
+                                    <h3>🌐 Virtual DOM</h3>
+                                    <p>Keeps lightweight copies of the DOM in memory to calculate updates before rendering them. Unmatched rendering speed!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 3: HISTORY OF REACT -->
+                <section class="slide" id="slide-3">
+                    <div class="slide-header">
+                        <span class="slide-icon">🕰</span>
+                        <h2 class="slide-title">History of React</h2>
+                    </div>
+                    <div class="slide-content">
+                        <p style="text-align: center; margin-bottom: 24px;">Click the timeline cards to see how React took over web development!</p>
+                        <div class="timeline">
+                            <div class="timeline-container timeline-left">
+                                <div class="timeline-content" onclick="selectTimeline(2011)">
+                                    <div class="timeline-year">2011</div>
+                                    <p><strong>First created</strong> at Facebook to solve massive updates on the News Feed.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-container timeline-right">
+                                <div class="timeline-content" onclick="selectTimeline(2013)">
+                                    <div class="timeline-year">2013</div>
+                                    <p><strong>Open-sourced</strong> at JSConf US. Developers initially scoffed at JSX, but it soon exploded in popularity.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-container timeline-left">
+                                <div class="timeline-content" onclick="selectTimeline(2015)">
+                                    <div class="timeline-year">2015</div>
+                                    <p><strong>React Native released</strong>, allowing developers to build cross-platform mobile apps with React.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-container timeline-right">
+                                <div class="timeline-content" onclick="selectTimeline(2026)">
+                                    <div class="timeline-year">Present</div>
+                                    <p>The industry standard library. Trusted by Instagram, Netflix, WhatsApp Web, and millions of websites worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 4: INSTALLING REACT -->
+                <section class="slide" id="slide-4">
+                    <div class="slide-header">
+                        <span class="slide-icon">⚙️</span>
+                        <h2 class="slide-title">Installing React (CRA vs Vite)</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="tab-container">
+                            <div class="tab-headers">
+                                <button class="tab-header active" onclick="switchTab('install', 'vite')">Vite (Recommended, Ultra-Fast)</button>
+                                <button class="tab-header" onclick="switchTab('install', 'cra')">Create React App (CRA, Legacy)</button>
+                            </div>
+                            <div class="tab-content active" id="tab-install-vite">
+                                <div class="grid-2col">
+                                    <div>
+                                        <p style="margin-bottom: 12px;">Vite is a modern frontend build tool that is incredibly fast due to ESM-based hot module replacement.</p>
+                                        <pre><code><span class="comment"># 1. Initialize project</span>
+<span class="keyword">npm</span> create vite@latest my-app -- --template react
+
+<span class="comment"># 2. Enter folder</span>
+<span class="keyword">cd</span> my-app
+
+<span class="comment"># 3. Install packages</span>
+<span class="keyword">npm</span> install
+
+<span class="comment"># 4. Start local development server</span>
+<span class="keyword">npm</span> run dev</code><button class="copy-code-btn" onclick="copyCode(this)">Copy</button></pre>
+                                        <p style="font-size: 0.9rem; margin-top: 12px;">🌐 Local port: <span class="highlight-text">http://localhost:5173</span></p>
+                                    </div>
+                                    <div class="card-panel">
+                                        <h3>Why choose Vite?</h3>
+                                        <ul>
+                                            <li>Instant server starts.</li>
+                                            <li>Extremely fast build and hot reloading (HMR).</li>
+                                            <li>Very small bundle sizes.</li>
+                                            <li>Leverages native ES modules directly.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" id="tab-install-cra">
+                                <div class="grid-2col">
+                                    <div>
+                                        <p style="margin-bottom: 12px;">Create React App (CRA) is the traditional configuration by Meta. It utilizes Webpack under the hood.</p>
+                                        <pre><code><span class="comment"># 1. Initialize and build workspace</span>
+<span class="keyword">npx</span> create-react-app my-app
+
+<span class="comment"># 2. Enter folder</span>
+<span class="keyword">cd</span> my-app
+
+<span class="comment"># 3. Start local development server</span>
+<span class="keyword">npm</span> start</code><button class="copy-code-btn" onclick="copyCode(this)">Copy</button></pre>
+                                        <p style="font-size: 0.9rem; margin-top: 12px;">🌐 Local port: <span class="highlight-text">http://localhost:3000</span></p>
+                                    </div>
+                                    <div class="card-panel">
+                                        <h3>CRA Characteristics</h3>
+                                        <ul>
+                                            <li>Pre-configured Webpack and Babel setups.</li>
+                                            <li>Larger node_modules size.</li>
+                                            <li>Slower build times for large applications.</li>
+                                            <li>Mostly deprecated by Meta in favor of Vite, Next.js, or Remix.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 5: FOLDER STRUCTURE -->
+                <section class="slide" id="slide-5">
+                    <div class="slide-header">
+                        <span class="slide-icon">📂</span>
+                        <h2 class="slide-title">React Project Folder Structure</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: var(--text-primary);">Interactive Folder tree:</h3>
+                                <div class="folder-explorer">
+                                    <div class="tree-item" onclick="exploreFolder('node_modules')"><span class="folder-icon">📁</span> node_modules</div>
+                                    <div class="tree-item" onclick="exploreFolder('public')"><span class="folder-icon">📁</span> public</div>
+                                    <div class="tree-indent"></div><div class="tree-item" onclick="exploreFolder('index_html')"><span class="file-icon">📄</span> index.html</div>
+                                    <div class="tree-item" onclick="exploreFolder('src')"><span class="folder-icon">📁</span> src</div>
+                                    <div class="tree-indent"></div><div class="tree-item" onclick="exploreFolder('assets')"><span class="folder-icon">📁</span> assets</div>
+                                    <div class="tree-indent"></div><div class="tree-item" onclick="exploreFolder('components')"><span class="folder-icon">📁</span> components</div>
+                                    <div class="tree-indent"></div><div class="tree-item" onclick="exploreFolder('app_jsx')"><span class="file-icon-react">⚛️</span> App.jsx</div>
+                                    <div class="tree-indent"></div><div class="tree-item" onclick="exploreFolder('app_css')"><span class="file-icon-css">🎨</span> App.css</div>
+                                    <div class="tree-indent"></div><div class="tree-item" onclick="exploreFolder('main_jsx')"><span class="file-icon-react">⚛️</span> main.jsx (or index.js)</div>
+                                    <div class="tree-item" onclick="exploreFolder('package_json')"><span class="file-icon-json">⚙️</span> package.json</div>
+                                    <div class="tree-item" onclick="exploreFolder('vite_config')"><span class="file-icon-json">⚙️</span> vite.config.js</div>
+                                </div>
+                            </div>
+                            <div class="card-panel" style="display: flex; flex-direction: column;" id="explorer-details">
+                                <h3 id="explorer-title">📂 Select a folder/file</h3>
+                                <p id="explorer-text" style="flex: 1; font-size: 1rem;">Click any component on the folder tree layout to display its deep architectural purpose.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 6: COMPONENTS -->
+                <section class="slide" id="slide-6">
+                    <div class="slide-header">
+                        <span class="slide-icon">🧩</span>
+                        <h2 class="slide-title">React Components</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Components are self-contained, modular blocks of markup, styling, and JS logic that build the visual viewport of your app.</p>
+                                <h4 style="margin-bottom: 8px;">Functional Component (Modern Standard)</h4>
+                                <pre><code><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;
+
+<span class="keyword">function</span> <span class="function">Welcome</span>() {
+  <span class="keyword">return</span> <span class="tag">&lt;h1&gt;</span>Hello, Students 👋<span class="tag">&lt;/h1&gt;</span>;
+}
+
+<span class="keyword">export default</span> <span class="function">Welcome</span>;</code></pre>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Using it inside App.jsx</h4>
+                                <pre><code><span class="keyword">import</span> Welcome <span class="keyword">from</span> <span class="string">"./components/Welcome"</span>;
+
+<span class="keyword">function</span> <span class="function">App</span>() {
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;Welcome</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}
+
+<span class="keyword">export default</span> <span class="function">App</span>;</code></pre>
+                                <div class="playground-box">
+                                    <div class="playground-badge">Render Output</div>
+                                    <h1 style="color: #fff;" id="component-mock-render">Hello, Students 👋</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 7: REACT FRAGMENT -->
+                <section class="slide" id="slide-7">
+                    <div class="slide-header">
+                        <span class="slide-icon">🔹</span>
+                        <h2 class="slide-title">React Fragment</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">React requires every component to return a <span class="highlight-text">single parent container</span>. Standard containers like `&lt;div&gt;` add redundant layers to the web browser DOM tree.</p>
+                                
+                                <h4 style="margin-bottom: 4px;">Short syntax representation:</h4>
+                                <pre><code><span class="keyword">function</span> <span class="function">App</span>() {
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;&gt;</span>
+      <span class="tag">&lt;h1&gt;</span>Welcome<span class="tag">&lt;/h1&gt;</span>
+      <span class="tag">&lt;p&gt;</span>This is my app<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Why use Fragments?</h4>
+                                <ul>
+                                    <li><span class="success-text">Cleaner DOM:</span> Eliminates wrapper divs.</li>
+                                    <li><span class="success-text">Correct HTML structure:</span> Essential when rendering children inside CSS Flex/Grid containers or tables where wrapping divs break semantics.</li>
+                                    <li><span class="success-text">Long Syntax Support:</span> Use `<span class="keyword">React.Fragment</span>` if you need to attach `key` properties to list items:</li>
+                                </ul>
+                                <pre style="margin-top: 10px;"><code><span class="tag">&lt;React.Fragment</span> <span class="attr">key</span><span class="operator">=</span>{item.id}<span class="tag">&gt;</span>
+  <span class="tag">&lt;dt&gt;</span>{item.term}<span class="tag">&lt;/dt&gt;</span>
+  <span class="tag">&lt;dd&gt;</span>{item.desc}<span class="tag">&lt;/dd&gt;</span>
+<span class="tag">&lt;/React.Fragment&gt;</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 8: IMAGES IN REACT -->
+                <section class="slide" id="slide-8">
+                    <div class="slide-header">
+                        <span class="slide-icon">🖼</span>
+                        <h2 class="slide-title">Working with Images</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div class="card-panel">
+                                <h3>1. Asset Import (src folder)</h3>
+                                <p style="margin-bottom: 12px;">Best for localized component assets. Webpack/Vite checks, optimises, and compiles these files at build time.</p>
+                                <pre><code><span class="keyword">import</span> myPic <span class="keyword">from</span> <span class="string">'./assets/photo.jpg'</span>;
+
+<span class="keyword">function</span> <span class="function">Profile</span>() {
+  <span class="keyword">return</span> <span class="tag">&lt;img</span> <span class="attr">src</span><span class="operator">=</span>{myPic} <span class="attr">alt</span><span class="operator">=</span><span class="string">"My Photo"</span> <span class="tag">/&gt;</span>;
+}</code></pre>
+                            </div>
+                            <div class="card-panel">
+                                <h3>2. Public Folder Reference</h3>
+                                <p style="margin-bottom: 12px;">Best for dynamic, universal site assets. Assets are stored intact and requested direct from root url.</p>
+                                <pre><code><span class="comment">// Looks inside the 'public' folder directly</span>
+<span class="keyword">function</span> <span class="function">Profile</span>() {
+  <span class="keyword">return</span> <span class="tag">&lt;img</span> <span class="attr">src</span><span class="operator">=</span><span class="string">"/photo.jpg"</span> <span class="attr">alt</span><span class="operator">=</span><span class="string">"My Photo"</span> <span class="tag">/&gt;</span>;
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="card-panel" style="margin-top: 20px;">
+                            <h3>💡 Architectural Rules on Asset Locations:</h3>
+                            <p>Use the <span class="highlight-text">import method</span> by default for images tied to components (profile images, cards). Use the <span class="accent-text">public folder</span> for assets that must maintain fixed, static URLs or are referenced globally (manifest, icons, favicon, static JSON).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 9: CSS MODULES AND CLASSNAME -->
+                <section class="slide" id="slide-9">
+                    <div class="slide-header">
+                        <span class="slide-icon">🎨</span>
+                        <h2 class="slide-title">CSS Modules & className</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Normal CSS styles are global and create selector conflicts. <span class="highlight-text">CSS Modules</span> scope your styles locally to preventing leakage.</p>
+                                <h4 style="margin-bottom: 4px;">App.module.css</h4>
+                                <pre><code>.title {
+  color: var(--primary);
+  font-size: 24px;
+}</code></pre>
+                                <h4 style="margin-bottom: 4px;">App.jsx usage</h4>
+                                <pre><code><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">'./App.module.css'</span>;
+
+<span class="keyword">function</span> <span class="function">App</span>() {
+  <span class="keyword">return</span> <span class="tag">&lt;h1</span> <span class="attr">className</span><span class="operator">=</span>{styles.title}<span class="tag">&gt;</span>Hello CSS Modules<span class="tag">&lt;/h1&gt;</span>;
+}</code></pre>
+                            </div>
+                            <div>
+                                <div class="card-panel" style="margin-bottom: 16px;">
+                                    <h3>🏷 Why className?</h3>
+                                    <p>JSX compiled output resolves to pure JavaScript. In JavaScript, <span class="warning-text">class</span> is a reserved keyword for ES6 classes. Thus, React JSX maps standard HTML classes to <span class="highlight-text">className</span>.</p>
+                                </div>
+                                <div class="scoped-demo-container">
+                                    <div class="global-css-card">
+                                        <h4 style="color: var(--danger)">Global CSS Leakage</h4>
+                                        <p style="font-size: 0.8rem; margin-top: 8px;">Styles collide when selectors match across elements, styling page-wide.</p>
+                                    </div>
+                                    <div class="module-css-card">
+                                        <h4 style="color: var(--accent)">CSS Module (Scoped)</h4>
+                                        <p style="font-size: 0.8rem; margin-top: 8px;">Compiled to unique strings: <br><code>App_title__2z9fA</code></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 10: CONDITIONAL RENDERING -->
+                <section class="slide" id="slide-10">
+                    <div class="slide-header">
+                        <span class="slide-icon">⚡</span>
+                        <h2 class="slide-title">Conditional Rendering</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 16px;">Display different elements in the viewport based on logical conditions (like user login state, loading states, admin checks).</p>
+                                <div class="tab-container">
+                                    <div class="tab-headers">
+                                        <button class="tab-header active" onclick="switchTab('cond', 'if')">1. if/else</button>
+                                        <button class="tab-header" onclick="switchTab('cond', 'ternary')">2. Ternary (? :)</button>
+                                        <button class="tab-header" onclick="switchTab('cond', 'and')">3. Short-circuit (&&)</button>
+                                    </div>
+                                    <div class="tab-content active" id="tab-cond-if">
+                                        <pre><code><span class="keyword">if</span> (isLogin) {
+  <span class="keyword">return</span> <span class="tag">&lt;button&gt;</span>Logout<span class="tag">&lt;/button&gt;</span>;
+} <span class="keyword">else</span> {
+  <span class="keyword">return</span> <span class="tag">&lt;button&gt;</span>Login<span class="tag">&lt;/button&gt;</span>;
+}</code></pre>
+                                    </div>
+                                    <div class="tab-content" id="tab-cond-ternary">
+                                        <pre><code><span class="keyword">return</span> (
+  <span class="tag">&lt;div&gt;</span>
+    {isLogin ? <span class="tag">&lt;button&gt;</span>Logout<span class="tag">&lt;/button&gt;</span> : <span class="tag">&lt;button&gt;</span>Login<span class="tag">&lt;/button&gt;</span>}
+  <span class="tag">&lt;/div&gt;</span>
+);</code></pre>
+                                    </div>
+                                    <div class="tab-content" id="tab-cond-and">
+                                        <pre><code><span class="keyword">return</span> (
+  <span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Welcome<span class="tag">&lt;/h1&gt;</span>
+    {isAdmin <span class="operator">&&</span> <span class="tag">&lt;button&gt;</span>Admin Panel<span class="tag">&lt;/button&gt;</span>}
+  <span class="tag">&lt;/div&gt;</span>
+);</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Interactive Demo</div>
+                                <h3 style="margin-bottom: 16px;" id="conditional-demo-state">Status: Logged Out ❌</h3>
+                                <div id="conditional-demo-nav" style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <button class="interactive-btn" id="cond-auth-btn" onclick="toggleCondDemo('auth')">Log In</button>
+                                    <button class="interactive-btn-secondary" id="cond-admin-btn" onclick="toggleCondDemo('admin')" style="display: none;">Show Admin Control</button>
+                                </div>
+                                <div id="cond-render-display" class="card-panel" style="width: 80%; background: rgba(0,0,0,0.3);">
+                                    <p>Please log in to see content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 11: REACT HOOKS INTRO -->
+                <section class="slide" id="slide-11">
+                    <div class="slide-header">
+                        <span class="slide-icon">📘</span>
+                        <h2 class="slide-title">React Hooks Introduction</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 16px; font-size: 1.2rem; line-height: 1.6;">React Hooks are special functions that allow you to <span class="highlight-text">"hook into"</span> React's local state, components lifecycle, context features directly inside <span class="accent-text">functional components</span>.</p>
+                                <div class="card-panel" style="border-left: 4px solid var(--primary);">
+                                    <h3>💡 Paradigm Shift</h3>
+                                    <p>Prior to React 16.8, only Class components could hold local state. Hooks enabled functional components to achieve complete feature parity with classes without using heavy boilerplate, construct code bases, or handling the confusing <code>this</code> keyword.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card-panel" style="margin-bottom: 16px;">
+                                    <h3>⚠️ Crucial Rules of Hooks</h3>
+                                    <ul>
+                                        <li>Only call Hooks at the <span class="warning-text">top level</span> of your component. Don't call them inside loops, condition blocks, or nested blocks.</li>
+                                        <li>Only call Hooks from <span class="warning-text">React functional components</span> or custom Hooks. Never call them from normal JS functions.</li>
+                                    </ul>
+                                </div>
+                                <h4 style="margin-bottom: 8px;">Core Hooks Overview:</h4>
+                                <div class="grid-3col" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;"><code class="react-hook">useState</code>: Local state management</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;"><code class="react-hook">useEffect</code>: Run side-effects</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;"><code class="react-hook">useContext</code>: Access global Context</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; font-size: 0.85rem;"><code class="react-hook">useRef</code>: Select DOM nodes / non-re-rendering states</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 12: USESTATE HOOK DEEP-DIVE -->
+                <section class="slide" id="slide-12">
+                    <div class="slide-header">
+                        <span class="slide-icon">🔹</span>
+                        <h2 class="slide-title">The useState Hook</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Allows components to preserve local variables that, when updated, automatically trigger a template <span class="highlight-text">re-render</span> in the DOM viewport.</p>
+                                <h4 style="margin-bottom: 4px;">Syntax</h4>
+                                <pre><code><span class="keyword">const</span> [state, setState] <span class="operator">=</span> <span class="react-hook">useState</span>(initialValue);</code></pre>
+                                
+                                <div class="card-panel" style="margin-top: 16px;">
+                                    <h3>🏏 Cricket Scoreboard Analogy</h3>
+                                    <p>Imagine a live match scoreboard:</p>
+                                    <ul>
+                                        <li><span class="highlight-text">state (count)</span>: The current runs score shown on the screen.</li>
+                                        <li><span class="highlight-text">setState (setCount)</span>: The official scorer who clicks/types updates to push a new value to the board.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <pre><code><span class="keyword">import</span> React, { useState } <span class="keyword">from</span> <span class="string">"react"</span>;
+
+<span class="keyword">function</span> <span class="function">Counter</span>() {
+  <span class="keyword">const</span> [count, setCount] <span class="operator">=</span> <span class="react-hook">useState</span>(<span class="number">0</span>);
+
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h2&gt;</span>Count: {count}<span class="tag">&lt;/h2&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">onClick</span><span class="operator">=</span>{() => <span class="function">setCount</span>(count + 1)}<span class="tag">&gt;</span>
+        Increase
+      <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 13: USESTATE INTERACTIVE DEMOS -->
+                <section class="slide" id="slide-13">
+                    <div class="slide-header">
+                        <span class="slide-icon">🎨</span>
+                        <h2 class="slide-title">useState Hook Interactive Demos</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div class="playground-box">
+                                <div class="playground-badge">Demo 1: Scoreboard Counter</div>
+                                <div class="scoreboard">
+                                    <div class="scoreboard-title">Cricket Score</div>
+                                    <div class="scoreboard-display" id="cricket-score">0</div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="interactive-btn" onclick="updateCricketScore(1)">+1 Run</button>
+                                    <button class="interactive-btn" onclick="updateCricketScore(4)">+4 Boundary</button>
+                                    <button class="interactive-btn" onclick="updateCricketScore(6)">+6 Sixer</button>
+                                    <button class="interactive-btn-secondary" onclick="updateCricketScore(0)">Reset</button>
+                                </div>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Demo 2: Color Changer</div>
+                                <div class="color-swatch-box" id="color-swatch" style="background-color: rgb(15, 23, 42);">
+                                    <p class="color-swatch-text" id="color-swatch-text" style="color: white; margin-bottom: 20px;">This text changes color!</p>
+                                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                                        <button class="interactive-btn" style="background: #ef4444; color: #fff; box-shadow: none; font-size: 0.85rem;" onclick="changeDemoColor('red')">Red</button>
+                                        <button class="interactive-btn" style="background: #3b82f6; color: #fff; box-shadow: none; font-size: 0.85rem;" onclick="changeDemoColor('blue')">Blue</button>
+                                        <button class="interactive-btn" style="background: #10b981; color: #000; box-shadow: none; font-size: 0.85rem;" onclick="changeDemoColor('green')">Green</button>
+                                        <button class="interactive-btn-secondary" style="font-size: 0.85rem;" onclick="changeDemoColor('reset')">Reset</button>
+                                    </div>
+                                </div>
+                                <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-secondary);">💡 Mini Task: Write an app that updates page background using buttons!</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 14: PROPS INTRODUCTION -->
+                <section class="slide" id="slide-14">
+                    <div class="slide-header">
+                        <span class="slide-icon">📘</span>
+                        <h2 class="slide-title">React Props: Introduction</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 16px; font-size: 1.15rem;">Props (properties) are parameters passed into components, operating like HTML attributes or arguments in a standard JavaScript function.</p>
+                                <div class="card-panel" style="border-left: 4px solid var(--secondary);">
+                                    <h3>📺 TV Remote Analogy</h3>
+                                    <p>A TV component renders standard displays. The <span class="highlight-text">buttons pressed (Volume Up, Channel 5)</span> act like props. They do not rebuild a new TV; they adjust parameter states inside the component layout.</p>
+                                </div>
+                                <div class="card-panel" style="margin-top: 16px;">
+                                    <h3>⚠️ Absolute Rules:</h3>
+                                    <p>Props are strictly <span class="danger-text">read-only</span> (immutable). Child components cannot mutate props passed from their parents.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 6px;">Simple Example:</h4>
+                                <pre><code><span class="keyword">function</span> <span class="function">Welcome</span>(props) {
+  <span class="keyword">return</span> <span class="tag">&lt;h2&gt;</span>Hello, {props.name}!<span class="tag">&lt;/h2&gt;</span>;
+}
+
+<span class="keyword">function</span> <span class="function">App</span>() {
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;Welcome</span> <span class="attr">name</span><span class="operator">=</span><span class="string">"Shayan"</span> <span class="tag">/&gt;</span>
+      <span class="tag">&lt;Welcome</span> <span class="attr">name</span><span class="operator">=</span><span class="string">"Ali"</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 15: TYPES OF PROPS -->
+                <section class="slide" id="slide-15">
+                    <div class="slide-header">
+                        <span class="slide-icon">🔹</span>
+                        <h2 class="slide-title">Types of Props</h2>
+                    </div>
+                    <div class="slide-content" style="font-size: 0.95rem;">
+                        <div class="grid-2col" style="gap: 16px;">
+                            <div>
+                                <ul>
+                                    <li><strong>(a) Strings:</strong> passed directly: <br><code>&lt;Greeting user="Shayan" /&gt;</code></li>
+                                    <li><strong>(b) Numbers:</strong> wrapped in curly braces: <br><code>&lt;Age value={30} /&gt;</code></li>
+                                    <li><strong>(c) Booleans:</strong> evaluates logically: <br><code>&lt;Status online={true} /&gt;</code></li>
+                                    <li><strong>(d) Objects:</strong> passed as complex bindings: <br><code>&lt;Student data={{ name: "Ali", age: 22 }} /&gt;</code></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li><strong>(e) Arrays:</strong> mapping datasets: <br><code>&lt;Skills list={["React", "Node"]} /&gt;</code></li>
+                                    <li><strong>(f) Functions (Callbacks):</strong> pass triggers to children: <br><code>&lt;Button onClick={handleAlert} /&gt;</code></li>
+                                    <li><strong>(g) Defaults:</strong> fallback values in templates: <br><code>Message.defaultProps = { text: "Hi" }</code></li>
+                                    <li><strong>(h) Children:</strong> items nested inside: <br><code>&lt;Card&gt;&lt;p&gt;Inside Container&lt;/p&gt;&lt;/Card&gt;</code></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-panel" style="margin-top: 10px; padding: 12px 24px;">
+                            <h3>props.children deep-dive:</h3>
+                            <p>Inside the child component definition, <span class="highlight-text">props.children</span> outputs whatever markup was nested inside the opening and closing tag of that component inside the parent.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 16: PRODUCT CARD PLAYGROUND -->
+                <section class="slide" id="slide-16">
+                    <div class="slide-header">
+                        <span class="slide-icon">🛒</span>
+                        <h2 class="slide-title">Props Playground (Product Card)</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="props-editor">
+                            <div class="props-controls">
+                                <h3>Product Card Props</h3>
+                                <label>
+                                    Product Name
+                                    <input type="text" id="prop-input-name" value="Ultra Gaming Laptop" oninput="updatePropsPlayground()">
+                                </label>
+                                <label>
+                                    Price ($)
+                                    <input type="number" id="prop-input-price" value="1200" oninput="updatePropsPlayground()">
+                                </label>
+                                <label style="flex-direction: row; align-items: center; justify-content: space-between; cursor: pointer;">
+                                    In Stock ✅
+                                    <input type="checkbox" id="prop-input-stock" checked onchange="updatePropsPlayground()">
+                                </label>
+                            </div>
+                            <div class="props-preview">
+                                <div class="product-card-mockup">
+                                    <h3 id="prop-preview-name">Ultra Gaming Laptop</h3>
+                                    <p class="price">$<span id="prop-preview-price">1200</span></p>
+                                    <span class="stock-badge stock-in" id="prop-preview-stock">In Stock ✅</span>
+                                    <button class="interactive-btn" style="width: 100%; margin: 0; padding: 8px 16px; font-size: 0.9rem;" onclick="alert('Purchased item!')">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 17: STATE LIFTING -->
+                <section class="slide" id="slide-17">
+                    <div class="slide-header">
+                        <span class="slide-icon">🚀</span>
+                        <h2 class="slide-title">State Lifting (Child ⇄ Parent)</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">React has unidirectional data flow (Parent to Child). When sibling components must communicate, we lift state to their nearest <span class="highlight-text">common ancestor</span>.</p>
+                                <h4 style="margin-bottom: 6px;">How it operates:</h4>
+                                <ul>
+                                    <li>The parent houses the shared <span class="accent-text">state</span> variable.</li>
+                                    <li>The parent passes down the <span class="accent-text">state update function</span> to Child A as a prop callback.</li>
+                                    <li>Child A triggers the callback with updated arguments.</li>
+                                    <li>Parent updates state, causing Parent and Child B to re-render.</li>
+                                </ul>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Live Communication Simulation</div>
+                                <div style="display: flex; flex-direction: column; gap: 16px; width: 90%;">
+                                    <div class="card-panel" style="background: rgba(0,216,255,0.05); border-color: rgba(0,216,255,0.2);">
+                                        <p style="font-size: 0.8rem; text-transform: uppercase;">Parent Component State</p>
+                                        <h3 id="lifting-parent-state">Current Message: Default</h3>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                        <div class="card-panel" style="padding: 12px; background: rgba(255,255,255,0.03);">
+                                            <p style="font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Child A (Input)</p>
+                                            <input type="text" id="lifting-child-input" placeholder="Type here..." oninput="liftStateFromChild(this.value)" style="width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px; color: #fff;">
+                                        </div>
+                                        <div class="card-panel" style="padding: 12px; background: rgba(255,255,255,0.03);">
+                                            <p style="font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px;">Child B (Display)</p>
+                                            <h4 id="lifting-child-display" style="color: var(--accent);">Default</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 18: EVENT HANDLING -->
+                <section class="slide" id="slide-18">
+                    <div class="slide-header">
+                        <span class="slide-icon">📘</span>
+                        <h2 class="slide-title">Event Handling in React</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">React events use camelCase syntax (e.g. `onClick`, `onChange`) instead of lowercase HTML defaults.</p>
+                                <h4 style="margin-bottom: 6px;">Syntax comparison:</h4>
+                                <pre><code><span class="comment">// HTML</span>
+<span class="tag">&lt;button</span> <span class="attr">onclick</span><span class="operator">=</span><span class="string">"handleClick()"</span><span class="tag">&gt;</span>Click<span class="tag">&lt;/button&gt;</span>
+
+<span class="comment">// React (JSX)</span>
+<span class="tag">&lt;button</span> <span class="attr">onClick</span><span class="operator">=</span>{handleClick}<span class="tag">&gt;</span>Click<span class="tag">&lt;/button&gt;</span></code></pre>
+                                <div class="card-panel" style="margin-top: 12px; padding: 12px 18px;">
+                                    <p class="warning-text" style="font-size: 0.9rem;">⚠️ Avoid Direct Invocation: <br><code>onClick={handleClick()}</code> runs instantly at load time. Always pass the function reference: <code>onClick={handleClick}</code>.</p>
+                                </div>
+                            </div>
+                            <div class="event-logger-box">
+                                <div class="playground-box" style="min-height: 120px; padding: 12px;">
+                                    <div class="playground-badge">Interaction Sandbox</div>
+                                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                        <button class="interactive-btn" onclick="logEvent('Click', 'Clicked Button')">Click Button</button>
+                                        <div class="interactive-btn-secondary" style="padding: 6px 12px; font-size: 0.9rem; cursor: crosshair;" onmouseover="logEvent('MouseOver', 'Hovered over box')">Hover Me</div>
+                                        <input type="text" placeholder="Type event..." oninput="logEvent('Change', 'Input text: ' + this.value)" style="background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 4px; padding: 4px 8px; color: #fff; font-size: 0.85rem; width: 130px;">
+                                    </div>
+                                </div>
+                                <div class="event-console" id="event-console-output">
+                                    <div class="event-log-entry"><span class="event-log-time">[Console Initialized]</span> <span class="event-log-name">Status:</span> Ready for user events.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 19: TAILWIND CSS -->
+                <section class="slide" id="slide-19">
+                    <div class="slide-header">
+                        <span class="slide-icon">🎨</span>
+                        <h2 class="slide-title">Tailwind CSS in React</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Tailwind CSS is a utility-first CSS framework packed with classes that can be composed to build any design directly in your JSX structure.</p>
+                                <h4 style="margin-bottom: 4px;">Tailwind JSX Code:</h4>
+                                <pre><code><span class="tag">&lt;div</span> <span class="attr">className</span><span class="operator">=</span><span class="string">"tw-p-6 tw-bg-slate-800 tw-rounded-xl 
+  tw-shadow-lg tw-transition tw-duration-300 
+  tw-hover-scale"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h3</span> <span class="attr">className</span><span class="operator">=</span><span class="string">"tw-text-sky-400 tw-font-bold"</span><span class="tag">&gt;</span>Tailwind card<span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;p</span> <span class="attr">className</span><span class="operator">=</span><span class="string">"tw-text-slate-400"</span><span class="tag">&gt;</span>React interactive deck<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Tailwind Live Sandbox</div>
+                                <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--text-secondary);">Toggle classes to apply utility rules:</p>
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px;">
+                                    <label class="nav-item" style="padding: 6px 12px; margin: 0; font-size: 0.8rem;"><input type="checkbox" checked onchange="toggleTailwindClass('p-6')"> Padding (p-6)</label>
+                                    <label class="nav-item" style="padding: 6px 12px; margin: 0; font-size: 0.8rem;"><input type="checkbox" checked onchange="toggleTailwindClass('bg-slate-800')"> Background (slate-800)</label>
+                                    <label class="nav-item" style="padding: 6px 12px; margin: 0; font-size: 0.8rem;"><input type="checkbox" checked onchange="toggleTailwindClass('rounded-xl')"> Border-Radius (rounded-xl)</label>
+                                    <label class="nav-item" style="padding: 6px 12px; margin: 0; font-size: 0.8rem;"><input type="checkbox" checked onchange="toggleTailwindClass('hover-scale')"> Zoom on Hover (scale-105)</label>
+                                </div>
+                                <div id="tailwind-preview-box" class="tw-p-6 tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-transition tw-duration-300 tw-hover-scale" style="width: 250px; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
+                                    <h4 class="tw-text-sky-400 tw-font-bold">Tailwind Live Box</h4>
+                                    <p class="tw-text-slate-400 tw-text-sm tw-mt-4">Dynamically styled component.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 20: USEEFFECT HOOK -->
+                <section class="slide" id="slide-20">
+                    <div class="slide-header">
+                        <span class="slide-icon">🔹</span>
+                        <h2 class="slide-title">The useEffect Hook</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Used to perform <span class="highlight-text">side-effects</span> (data fetching, DOM updates, event listeners, intervals) inside functional components.</p>
+                                <pre><code><span class="react-hook">useEffect</span>(() => {
+  <span class="comment">// 1. Side Effect code here</span>
+  <span class="function">fetchData</span>();
+
+  <span class="comment">// 2. Optional clean-up function</span>
+  <span class="keyword">return</span> () => <span class="function">cleanup</span>();
+}, [dependencies]);</code></pre>
+                                <div class="card-panel" style="margin-top: 8px; padding: 12px;">
+                                    <p style="font-size: 0.85rem;"><strong>Dependency Array configurations:</strong></p>
+                                    <ul style="font-size: 0.8rem; margin: 0; padding-left: 16px;">
+                                        <li><code>[ ]</code>: Runs once at mount time.</li>
+                                        <li><code>[stateVar]</code>: Runs at mount AND whenever stateVar shifts value.</li>
+                                        <li>None: Runs after every single render cycle.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">API Side-Effect Simulator</div>
+                                <div style="width: 90%;">
+                                    <input type="text" id="effect-api-query" placeholder="Type a search query..." oninput="simulateApiFetch()" style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); padding: 8px; border-radius: 6px; color: #fff; margin-bottom: 16px;">
+                                    <div class="card-panel" id="api-fetch-results" style="background: rgba(0,0,0,0.2); min-height: 120px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">
+                                        <p>Type above to simulate API fetch side-effects.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 21: USECONTEXT HOOK -->
+                <section class="slide" id="slide-21">
+                    <div class="slide-header">
+                        <span class="slide-icon">🔹</span>
+                        <h2 class="slide-title">The useContext Hook</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Solves <span class="warning-text">prop drilling</span> (passing variables down multiple components levels that don't need them directly).</p>
+                                <pre><code><span class="comment">// 1. Create Context</span>
+<span class="keyword">const</span> ThemeContext <span class="operator">=</span> <span class="function">createContext</span>();
+
+<span class="comment">// 2. Wrap Provider</span>
+<span class="tag">&lt;ThemeContext.Provider</span> <span class="attr">value</span><span class="operator">=</span><span class="string">"dark"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;App /&gt;</span>
+<span class="tag">&lt;/ThemeContext.Provider&gt;</span>
+
+<span class="comment">// 3. Consume in Leaf Component</span>
+<span class="keyword">const</span> theme <span class="operator">=</span> <span class="react-hook">useContext</span>(ThemeContext);</code></pre>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Prop Drilling Solver Diagram</div>
+                                <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; width: 100%;">
+                                    <div class="card-panel" style="padding: 8px 16px; background: var(--secondary);">Root Component (State: Dark)</div>
+                                    <div class="pulse-element" style="color: var(--primary);">↓ Prop drilling paths</div>
+                                    <div style="display: flex; gap: 40px;">
+                                        <div class="card-panel" style="padding: 8px 12px; opacity: 0.5;">Sibling Component</div>
+                                        <div class="card-panel" style="padding: 8px 12px; opacity: 0.5;">Intermediary Component</div>
+                                    </div>
+                                    <div class="pulse-element" style="color: var(--primary);">↓ Passing down...</div>
+                                    <div class="card-panel" style="padding: 8px 16px; background: var(--accent); color: #000;">Leaf Component (Consuming Context)</div>
+                                    <div style="display: flex; gap: 8px; margin-top: 10px;">
+                                        <button class="interactive-btn" onclick="toggleDrillVisual('drill')">Drill Props</button>
+                                        <button class="interactive-btn" onclick="toggleDrillVisual('context')">useContext Jump</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 22: REACT ROUTER -->
+                <section class="slide" id="slide-22">
+                    <div class="slide-header">
+                        <span class="slide-icon">🌐</span>
+                        <h2 class="slide-title">React Router (Routing)</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 8px;">Allows SPAs to implement multi-page navigation without triggering page refreshes.</p>
+                                <pre style="font-size: 0.8rem; padding: 10px;"><code><span class="keyword">import</span> { BrowserRouter, Routes, Route, Link } <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;
+
+<span class="keyword">function</span> <span class="function">App</span>() {
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;BrowserRouter&gt;</span>
+      <span class="tag">&lt;nav&gt;</span>
+        <span class="tag">&lt;Link</span> <span class="attr">to</span><span class="operator">=</span><span class="string">"/"</span><span class="tag">&gt;</span>Home<span class="tag">&lt;/Link&gt;</span>
+        <span class="tag">&lt;Link</span> <span class="attr">to</span><span class="operator">=</span><span class="string">"/about"</span><span class="tag">&gt;</span>About<span class="tag">&lt;/Link&gt;</span>
+      <span class="tag">&lt;/nav&gt;</span>
+      <span class="tag">&lt;Routes&gt;</span>
+        <span class="tag">&lt;Route</span> <span class="attr">path</span><span class="operator">=</span><span class="string">"/"</span> <span class="attr">element</span><span class="operator">=</span>{<span class="tag">&lt;Home</span> <span class="tag">/&gt;</span>} <span class="tag">/&gt;</span>
+        <span class="tag">&lt;Route</span> <span class="attr">path</span><span class="operator">=</span><span class="string">"/about"</span> <span class="attr">element</span><span class="operator">=</span>{<span class="tag">&lt;About</span> <span class="tag">/&gt;</span>} <span class="tag">/&gt;</span>
+      <span class="tag">&lt;/Routes&gt;</span>
+    <span class="tag">&lt;/BrowserRouter&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-navbar">
+                                    <div class="browser-dots">
+                                        <div class="browser-dot dot-red"></div>
+                                        <div class="browser-dot dot-yellow"></div>
+                                        <div class="browser-dot dot-green"></div>
+                                    </div>
+                                    <div class="browser-address-bar">
+                                        https://localhost:5173<span id="browser-url-path">/</span>
+                                    </div>
+                                </div>
+                                <div class="mock-browser-content">
+                                    <div class="router-nav-links">
+                                        <span class="router-link" onclick="navigateMockRouter('/')">Home</span>
+                                        <span class="router-link" onclick="navigateMockRouter('/about')">About</span>
+                                        <span class="router-link" onclick="navigateMockRouter('/dashboard')">Dashboard</span>
+                                    </div>
+                                    <div id="mock-router-body">
+                                        <h3>🏡 Welcome to Home Page</h3>
+                                        <p>This is dynamic components injected without browser refresh cycles.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 23: REACT HOOK FORM -->
+                <section class="slide" id="slide-23">
+                    <div class="slide-header">
+                        <span class="slide-icon">📝</span>
+                        <h2 class="slide-title">React Hook Form</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Simplifies form handling and field validation in React, avoiding redundant component re-renders that happen when using controlled state inputs.</p>
+                                <pre style="font-size: 0.8rem; padding: 10px;"><code><span class="keyword">import</span> { useForm } <span class="keyword">from</span> <span class="string">'react-hook-form'</span>;
+
+<span class="keyword">function</span> <span class="function">Form</span>() {
+  <span class="keyword">const</span> { register, handleSubmit, formState: { errors } } <span class="operator">=</span> <span class="function">useForm</span>();
+  <span class="keyword">const</span> <span class="function">onSubmit</span> <span class="operator">=</span> data => console.<span class="function">log</span>(data);
+
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;form</span> <span class="attr">onSubmit</span><span class="operator">=</span>{<span class="function">handleSubmit</span>(onSubmit)}<span class="tag">&gt;</span>
+      <span class="tag">&lt;input</span> {...<span class="function">register</span>(<span class="string">"name"</span>, { required: <span class="keyword">true</span> })} <span class="tag">/&gt;</span>
+      {errors.name <span class="operator">&&</span> <span class="tag">&lt;span&gt;</span>Required<span class="tag">&lt;/span&gt;</span>}
+      <span class="tag">&lt;button&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/form&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Interactive Form Validation</div>
+                                <form id="hook-form-mock" onsubmit="submitHookFormMock(event)" style="display: flex; flex-direction: column; gap: 12px; width: 85%;">
+                                    <label style="display: flex; flex-direction: column; text-align: left; font-size: 0.8rem; color: var(--text-secondary);">
+                                        Email Address (Required)
+                                        <input type="text" id="form-mock-email" placeholder="example@domain.com" style="background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); padding: 8px; border-radius: 4px; color: #fff; margin-top: 4px;">
+                                        <span id="form-error-email" style="color: var(--danger); font-size: 0.75rem; display: none; margin-top: 4px;">⚠️ Email is required and must contain @</span>
+                                    </label>
+                                    <label style="display: flex; flex-direction: column; text-align: left; font-size: 0.8rem; color: var(--text-secondary);">
+                                        Password (Min Length: 6)
+                                        <input type="password" id="form-mock-password" placeholder="••••••••" style="background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); padding: 8px; border-radius: 4px; color: #fff; margin-top: 4px;">
+                                        <span id="form-error-password" style="color: var(--danger); font-size: 0.75rem; display: none; margin-top: 4px;">⚠️ Password must be at least 6 characters</span>
+                                    </label>
+                                    <button class="interactive-btn" type="submit" style="margin: 8px 0 0 0;">Register Account</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 24: REDUX TOOLKIT -->
+                <section class="slide" id="slide-24">
+                    <div class="slide-header">
+                        <span class="slide-icon">📦</span>
+                        <h2 class="slide-title">Redux Toolkit (Global State)</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 10px;">Used for enterprise-level state management. RTK packages the standard Redux boilerplate into easy-to-use Slices.</p>
+                                <pre style="font-size: 0.75rem; padding: 10px;"><code><span class="comment">// 1. Create a Slice</span>
+<span class="keyword">const</span> counterSlice <span class="operator">=</span> <span class="function">createSlice</span>({
+  name: <span class="string">'counter'</span>,
+  initialState: { value: <span class="number">0</span> },
+  reducers: {
+    increment: state => { state.value += <span class="number">1</span> }
+  }
+});
+
+<span class="comment">// 2. Use in Component</span>
+<span class="keyword">const</span> count <span class="operator">=</span> <span class="function">useSelector</span>(state => state.counter.value);
+<span class="keyword">const</span> dispatch <span class="operator">=</span> <span class="function">useDispatch</span>();
+<span class="tag">&lt;button</span> <span class="attr">onClick</span><span class="operator">=</span>{() => <span class="function">dispatch</span>(increment())}<span class="tag">&gt;</span>+<span class="tag">&lt;/button&gt;</span></code></pre>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">Redux Data Flow Architecture</div>
+                                <div style="display: flex; flex-direction: column; align-items: center; width: 100%; gap: 12px;">
+                                    <div class="card-panel" style="padding: 8px 16px; background: rgba(168, 85, 247, 0.2); border-color: var(--secondary);">Redux Global Store (Single State tree)</div>
+                                    <div style="display: flex; justify-content: space-around; width: 100%; align-items: center;">
+                                        <div class="card-panel" style="padding: 8px; font-size: 0.8rem; background: rgba(0,0,0,0.4);">Action dispatched</div>
+                                        <div class="pulse-element" style="color: var(--primary);">➔</div>
+                                        <div class="card-panel" style="padding: 8px; font-size: 0.8rem; background: rgba(0,0,0,0.4);">Reducer calculates</div>
+                                        <div class="pulse-element" style="color: var(--primary);">➔</div>
+                                        <div class="card-panel" style="padding: 8px; font-size: 0.8rem; background: rgba(0,0,0,0.4);">UI re-renders</div>
+                                    </div>
+                                    <div class="card-panel" style="width: 80%; background: #000; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+                                        <span>Redux count: <strong id="redux-mock-count" style="color: var(--primary);">0</strong></span>
+                                        <button class="interactive-btn" style="margin: 0; padding: 6px 12px; font-size: 0.8rem;" onclick="dispatchReduxMock('increment')">dispatch(increment())</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 25: PERFORMANCE HOOKS -->
+                <section class="slide" id="slide-25">
+                    <div class="slide-header">
+                        <span class="slide-icon">⚡</span>
+                        <h2 class="slide-title">useRef, useMemo & useCallback</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-3col">
+                            <div class="card-panel" style="display: flex; flex-direction: column;">
+                                <h3>useRef</h3>
+                                <p style="flex: 1; margin-bottom: 12px; font-size: 0.85rem;">Persists mutable values across renders WITHOUT causing component re-render triggers. Also directly references actual HTML DOM elements.</p>
+                                <pre style="font-size: 0.75rem; padding: 6px; margin: 0;"><code><span class="keyword">const</span> inputRef <span class="operator">=</span> <span class="react-hook">useRef</span>();
+<span class="comment">// Focus element</span>
+inputRef.current.<span class="function">focus</span>();</code></pre>
+                            </div>
+                            <div class="card-panel" style="display: flex; flex-direction: column;">
+                                <h3>useMemo</h3>
+                                <p style="flex: 1; margin-bottom: 12px; font-size: 0.85rem;">Caches the result of an expensive computation, re-calculating it only when variables in the dependency array change value.</p>
+                                <pre style="font-size: 0.75rem; padding: 6px; margin: 0;"><code><span class="keyword">const</span> computedVal <span class="operator">=</span> <span class="react-hook">useMemo</span>(() => {
+  <span class="keyword">return</span> <span class="function">expensiveCalc</span>(val);
+}, [val]);</code></pre>
+                            </div>
+                            <div class="card-panel" style="display: flex; flex-direction: column;">
+                                <h3>useCallback</h3>
+                                <p style="flex: 1; margin-bottom: 12px; font-size: 0.85rem;">Caches the function definition itself to prevent children components from re-rendering due to changing memory address references.</p>
+                                <pre style="font-size: 0.75rem; padding: 6px; margin: 0;"><code><span class="keyword">const</span> handleToggle <span class="operator">=</span> <span class="react-hook">useCallback</span>(() => {
+  <span class="function">setOpen</span>(o => !o);
+}, []);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 26: MINI PROJECT PASTE APP -->
+                <section class="slide" id="slide-26">
+                    <div class="slide-header">
+                        <span class="slide-icon">🧩</span>
+                        <h2 class="slide-title">Mini Project: Creating "PASTE"</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">A practical application designed to save, list, and copy markdown code snippets or notes using local storage parameters.</p>
+                                <ul>
+                                    <li><strong>Save and edit:</strong> inputs for Title and Code block.</li>
+                                    <li><strong>Note listings:</strong> lists showing saved cards.</li>
+                                    <li><strong>Copy function:</strong> clipboard copies instantly.</li>
+                                    <li><strong>Local Storage:</strong> values persist after page reload.</li>
+                                    <li><strong>Search filters:</strong> live search box lists matches.</li>
+                                </ul>
+                            </div>
+                            <div class="playground-box">
+                                <div class="playground-badge">PASTE Application Sandbox</div>
+                                <div style="display: flex; flex-direction: column; width: 100%; gap: 10px;">
+                                    <div style="display: flex; gap: 8px;">
+                                        <input type="text" id="paste-title-input" placeholder="Title..." style="flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); padding: 6px; border-radius: 4px; color: #fff; font-size: 0.8rem;">
+                                        <button class="interactive-btn" style="margin: 0; padding: 6px 12px; font-size: 0.8rem;" onclick="addPasteAppNote()">Save Paste</button>
+                                    </div>
+                                    <textarea id="paste-content-input" placeholder="Paste content here..." style="background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); padding: 8px; border-radius: 4px; color: #fff; height: 60px; font-family: var(--font-mono); font-size: 0.8rem; resize: none;"></textarea>
+                                    <div id="paste-notes-list" style="max-height: 80px; overflow-y: auto; text-align: left; display: flex; flex-direction: column; gap: 4px;">
+                                        <p style="font-size: 0.75rem; color: var(--text-secondary); text-align: center;">No pastes saved yet. Add one above!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 27: DEPLOY ON VERCEL -->
+                <section class="slide" id="slide-27">
+                    <div class="slide-header">
+                        <span class="slide-icon">🚀</span>
+                        <h2 class="slide-title">Deploying on Vercel</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <p style="margin-bottom: 12px;">Vercel makes deploying production frontend websites incredibly straightforward. You can push live directly from your workspace CLI console.</p>
+                                <pre><code><span class="comment"># 1. Install Vercel CLI globally</span>
+<span class="keyword">npm</span> install -g vercel
+
+<span class="comment"># 2. Authenticate and deploy</span>
+<span class="keyword">vercel</span>
+
+<span class="comment"># 3. Follow terminal prompts:</span>
+<span class="comment"># ? Set up and deploy? [Y/n] y</span>
+<span class="comment"># ? Which scope? [User]</span>
+<span class="comment"># ? Link to existing project? [y/N] n</span>
+<span class="comment"># ? What's your project's name? my-app</span></code></pre>
+                            </div>
+                            <div class="card-panel" style="display: flex; flex-direction: column; justify-content: center;">
+                                <h3>💡 Continuous Deployment (Git)</h3>
+                                <p style="margin-bottom: 12px;">The best method is linking your code repository (GitHub/GitLab) directly on Vercel's online UI dashboard:</p>
+                                <ul style="margin: 0; padding-left: 20px;">
+                                    <li>Automated deployments triggered on every commit.</li>
+                                    <li>Instant production and preview link generation.</li>
+                                    <li>Production builds configured automatically.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 28: KEY TAKEAWAYS -->
+                <section class="slide" id="slide-28">
+                    <div class="slide-header">
+                        <span class="slide-icon">🎓</span>
+                        <h2 class="slide-title">Key Takeaways & Wrap Up</h2>
+                    </div>
+                    <div class="slide-content">
+                        <div class="grid-2col">
+                            <div>
+                                <h3 style="color: var(--primary); margin-bottom: 12px;">React Checklist</h3>
+                                <ul>
+                                    <li>Always think in <span class="highlight-text">declarative state structures</span>, not procedural DOM updates.</li>
+                                    <li>Maximize components reusability. Keep files focused.</li>
+                                    <li>Never update state variables directly. Always use the hook update callbacks.</li>
+                                    <li>Keep your DOM clean by nesting layout siblings in Fragments.</li>
+                                </ul>
+                            </div>
+                            <div class="card-panel" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.03);">
+                                <h2 style="color: var(--accent); margin-bottom: 8px; font-weight: 800;">Congratulations!</h2>
+                                <p style="color: var(--text-primary); margin-bottom: 16px; font-size: 1.05rem;">You have learned the baseline architecture of React.js.</p>
+                                <button class="interactive-btn" onclick="goToSlide(1)">Go Back to Title</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Slide Controllers Footer -->
+            <footer class="presentation-footer">
+                <div class="footer-left">
+                    <div class="slide-controls">
+                        <button class="control-btn" id="prev-btn" onclick="prevSlide()" disabled>◀ Prev</button>
+                        <button class="control-btn" id="next-btn" onclick="nextSlide()">Next ▶</button>
+                    </div>
+                </div>
+                <div class="footer-center">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <span class="slide-indicator" id="slide-indicator">Slide 1 / 28</span>
+                </div>
+                <div class="footer-right">
+                    <button class="control-btn" id="fullscreen-btn" onclick="toggleFullscreen()" style="padding: 8px 12px;">
+                        📺 Fullscreen
+                    </button>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
